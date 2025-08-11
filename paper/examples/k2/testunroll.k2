@@ -1,0 +1,16 @@
+(entry main)
+
+(function main ()
+  (return)
+  (locals (var i int))
+  (seq
+    (assign i (const 0 int))
+    (label loop)
+    (jump (label body) (label exit))
+    (label body)
+    (assume (op lt i (const 3 int)))
+    (assign i (op add i (const 1 int)))
+    (jump (label loop))
+    (label exit)
+    (assume (op ge i (const 3 int)))
+    (! (label ERROR) :error ERROR)))

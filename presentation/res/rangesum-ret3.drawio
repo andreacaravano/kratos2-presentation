@@ -1,0 +1,46 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.15 Chrome/134.0.6998.205 Electron/35.2.1 Safari/537.36" version="26.2.15">
+  <diagram name="Pagina-1" id="OY0fyZSiVEXcbiOMYMP0">
+    <mxGraphModel dx="672" dy="372" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mZAEAbtwkrp6PI0slRsM-2" value="10" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;" parent="1" vertex="1">
+          <mxGeometry x="10" y="118" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mZAEAbtwkrp6PI0slRsM-3" value="30" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;" parent="1" vertex="1">
+          <mxGeometry x="70" y="118" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mZAEAbtwkrp6PI0slRsM-4" value="40" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;" parent="1" vertex="1">
+          <mxGeometry x="130" y="118" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mZAEAbtwkrp6PI0slRsM-5" value="50" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="190" y="118" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mZAEAbtwkrp6PI0slRsM-6" value="20" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="250" y="118" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mZAEAbtwkrp6PI0slRsM-12" value="ret3 = (50 + 20) / 2 = 35" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Courier New;fontStyle=1;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="11.5" y="181" width="297" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PzMSOVeLEXaj8im2hZ2g-1" value="20" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;" parent="1" vertex="1">
+          <mxGeometry x="10" y="10" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PzMSOVeLEXaj8im2hZ2g-2" value="10" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;" parent="1" vertex="1">
+          <mxGeometry x="70" y="10" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PzMSOVeLEXaj8im2hZ2g-3" value="30" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;" parent="1" vertex="1">
+          <mxGeometry x="130" y="10" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PzMSOVeLEXaj8im2hZ2g-4" value="40" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="190" y="10" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PzMSOVeLEXaj8im2hZ2g-5" value="50" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=28;fontFamily=DIN Alternate;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="250" y="10" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GEQn29shIYRXevMfR-40-1" value="ret2 = (40 + 50) / 2 = 45" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Courier New;fontStyle=1;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="9.5" y="73" width="297" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

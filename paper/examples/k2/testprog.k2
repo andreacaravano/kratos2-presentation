@@ -1,0 +1,21 @@
+(globals (var |x| int))
+
+(entry |main|)
+
+(type |pippo| (enum pluto paperino))
+
+(init (assume (op eq (var |x| int) (const 42 int))))
+
+(function |main| () (return)
+  (locals (var |y| int)
+          (var |p| pippo)
+    )
+  (seq
+    (assign |y| (const 23 int))
+    (assume (op gt (var |y| int) (const 0 int)))
+    (assign (var |x| int) (op sub (var |x| int) (var |y| int) ))
+    (assign p (const pluto pippo))
+    (assume (op not (op eq p (const paperino pippo))))
+    (! (label ERROR) :error ERROR)
+  )
+)

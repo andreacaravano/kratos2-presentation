@@ -1,0 +1,38 @@
+(type cint (sbv 32))
+(entry init_and_main)
+(globals (var glbl cint))
+
+(function f ((var x cint))
+    (return (var ret cint)) (locals)
+    (seq
+        (jump (label then) (label else))
+        (label then)
+        (assume (op gt glbl (const 0 cint)))
+        (assign ret (sub x (const 1 cint)))
+        (jump (label end))
+        (label else)
+        (assume (op not (op gt glbl (const 0 cint))))
+        (assign glbl (const 0 cint))
+        (assign ret x)
+        (label end)))
+
+(function main () (return) (locals (var y cint))
+    (seq
+        (label while)
+        (jump (label inwhile) (label endwhile))
+        (label inwhile)
+        (assume (op gt y (const 0 cint)))
+        (call f y y)
+        (jump (label while))
+        (label endwhile)
+        (assume (op not (op gt y (const 0 cint))))
+        (jump (label then) (label else))
+        (label then)
+        (assume (op not (op eq glbl (const 0 cint))))
+        (! (label err) :error assert-fail)
+        (label else)))
+    
+(function init_and_main () (return) (locals)
+    (seq
+        (assign glbl (const 0 cint))
+        (call main)))

@@ -1,0 +1,9 @@
+(entry main)
+(globals (var x int))
+
+(function main () (return)
+ (locals)
+ (seq
+   (assign (var x int) (const 50000000000000000 int))
+   (assume (op gt (var x int) (const 0 int)))
+   (! (label ERROR) :error ERROR)))

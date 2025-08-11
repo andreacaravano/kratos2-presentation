@@ -1,0 +1,16 @@
+(globals (var |x| int))
+
+(entry |main|)
+
+(function |main| () (return)
+  (locals (var |y| int))
+  (seq
+    (assign (var |x| int) (const 42 int))
+    (call (const |f| (fun (int) (int))) (var |x| int) (var |y| int))
+    (assume (op gt y (const 0 int)))
+    (! (label ERROR) :error ERROR)
+  ))
+
+(function |f| ((var |n| int)) (return (var |ret| int))
+   (locals (var |l| int))
+   (assign (var |ret| int) (op add (var |n| int) (var |l| int))))

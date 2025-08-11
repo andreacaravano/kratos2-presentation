@@ -1,0 +1,269 @@
+\begin{frame}[fragile]{Even or Odd? A recursive case}
+    \begin{block}{C implementation}
+            \begin{minted}[fontsize=\footnotesize]{C}
+int main() {
+    int n = __VERIFIER_nondet_int();
+    if (n < 0 || n > 400) return 0;
+
+    int result = isEven(n);  // 1 if even, 0 if odd
+    int mod = n % 2;         // 0 if even, 1 if odd
+
+    if (result < 0 || result == mod) {
+        return 0;
+    } else {
+    // our case
+    ERROR: {
+        reach_error();
+        abort();
+    }
+    }
+}
+            \end{minted}
+    \end{block}
+
+    \pause
+
+    \begin{block}{Linux shell command}
+            \begin{minted}{bash}
+python kratos-svcomp.py evenodd.c --cex
+            \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Even or Odd? A recursive case}
+    \begin{block}{Kratos output}
+            \begin{minted}[fontsize=\footnotesize]{text}
+-----------------------------------------------------------------------------
+translating input C program to k2
+-----------------------------------------------------------------------------
+translation_time = 0.147
+-----------------------------------------------------------------------------
+running kratos with configuration: symexec
+-----------------------------------------------------------------------------
+parsing... done (0.015)
+flattening... done (0.006)
+building control-flow graph... done (0.002)
+performing symbolic execution...
+Counterexample trace
+    ...
+ done (0.064)
+
+Symbolic execution statistics:
+    ...
+Global statistics:
+    ...
+
+unsafe
+            \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Even or Odd? A recursive case}
+    \begin{block}{Let's fix it!}
+            \begin{minted}[fontsize=\footnotesize]{C}
+int main() {
+    ...
+
+    int result = isOdd(n);  // 0 if even, 1 if odd
+    int mod = n % 2;        // 0 if even, 1 if odd
+
+    ...
+}
+            \end{minted}
+    \end{block}
+
+    \pause
+
+    \begin{block}{Linux shell command}
+            \begin{minted}{bash}
+python kratos-svcomp.py evenodd.c
+            \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Even or Odd? A recursive case}
+    \begin{block}{Kratos output}
+            \begin{minted}[fontsize=\footnotesize]{text}
+-----------------------------------------------------------------------------
+translating input C program to k2
+-----------------------------------------------------------------------------
+translation_time = 0.239
+-----------------------------------------------------------------------------
+running kratos with configuration: symexec
+options: -stage=symexec -error_id=reach_error -symexec_iterative=true -symexec_max_depth=0
+-----------------------------------------------------------------------------
+parsing... done (0.015)
+flattening... done (0.005)
+building control-flow graph... done (0.003)
+performing symbolic execution...
+ done (28.722)
+
+Symbolic execution statistics:
+  ...
+
+Global statistics:
+  ...
+
+safe
+            \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The Kratos SV-COMP automated wrapper: a brief overview}
+    \begin{block}{Python implementation}
+            \begin{minted}[fontsize=\tiny]{C}
+#!/usr/bin/env python
+
+import os, sys, argparse
+import tempfile
+import shutil
+import c2kratos.main
+import kratos
+import subprocess
+import time
+
+_common_mc_opts = "-stage=mc -inline_max_depth_add_check=true -propagate_constants=maps -remove_const_maps=true -apply_slicing=true"
+
+configs = {
+    "bmc": _common_mc_opts + " -model_checking_engine=bmc",
+    "msatic3": _common_mc_opts
+    + " -model_checking_engine=msatic3 -model_checking_invert_ts=true",
+    "symexec": "-stage=symexec -error_id=reach_error -symexec_iterative=true -symexec_max_depth=0",
+    "bitprophic3": _common_mc_opts + " -model_checking_engine=btoric3abs",
+}
+
+# format is: (name, time limit in seconds)
+configorder = [
+    ("symexec", 240),
+    ("msatic3", 450),
+    ("bitprophic3", 600),
+    ("bmc", -1),
+    # run symex again if other engines fail due to unsupported recursion
+    ("symexec", -1),
+    # Skipped configurations...
+    ("msatic3", -1),
+    ("bitprophic3", -1),
+]
+
+spec = "CHECK( init(main()), LTL(G ! call(reach_error())) )"
+            \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The Kratos SV-COMP automated wrapper: a brief overview}
+    \begin{block}{Python implementation}
+            \begin{minted}[fontsize=\tiny]{C}
+def c_to_k2(opts, tempdir):
+    specfile = os.path.join(tempdir, "spec.prp")
+    with open(specfile, "w") as out:
+        out.write(spec)
+    filename = os.path.join(tempdir, "program.k2")
+    inputfile = opts.inputfile
+
+    if opts.prefer_unprocessed:
+        benchname, ext = os.path.splitext(inputfile)
+        unprocessed = benchname + ".c"
+        path, benchmark = os.path.split(unprocessed)
+        path, family = os.path.split(path)
+        if ext == ".i" and os.path.exists(unprocessed):
+            print("Preferring unprocessed", unprocessed, file=sys.stderr)
+            inputfile = unprocessed
+
+    frontend_opts = ["--svcomp-spec", specfile, "--output", filename, inputfile]
+    c2kratos.main.main(c2kratos.main.getopts(frontend_opts))
+    return filename
+
+def getopts():
+    p = argparse.ArgumentParser()
+    p.add_argument("inputfile")
+    p.add_argument("--dump-k2")
+    p.add_argument("--cex", action="store_true")
+    p.add_argument("--translate-only", action="store_true")
+    p.add_argument("--prefer-unprocessed", action="store_true")
+    p.add_argument("--single-config")
+    return p.parse_args()
+
+def main():
+    ...
+            \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The Bubble Sorting algorithm: a development companion}
+    \begin{block}{C implementation}
+            \begin{minted}[fontsize=\footnotesize]{C}
+// Limited for performance reasons...
+#define N 5
+
+int main() {
+    int a[N];
+    for (int j = 0; j < N; j++) {
+        a[j] = __VERIFIER_nondet_int();
+    }
+
+    int swapped = 1;
+    while (swapped) {
+        swapped = 0;
+        for (int i = 1; i < N; i++) {
+            if (a[i - 1] > a[i]) {
+                int t = a[i];
+                a[i] = a[i - 1];
+                a[i - 1] = t;
+                swapped = 1;
+            }
+        }
+    }
+            \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The Bubble Sorting algorithm: a development companion}
+    \begin{block}{C implementation}
+            \begin{minted}[fontsize=\footnotesize]{C}
+    int x, y;
+    for (x = 0; x < N; x++) {
+        for (y = x + 1; y < N; y++) {
+            // multiple assertions!
+            __VERIFIER_assert(a[x] <= a[y]);
+        }
+    }
+    return 0;
+}
+            \end{minted}
+    \end{block}
+
+    \pause
+
+    \begin{block}{Linux shell command}
+            \begin{minted}{bash}
+python kratos-svcomp.py bubblesort.c
+            \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The Bubble Sorting algorithm: a development companion}
+    \begin{block}{Kratos output}
+            \begin{minted}[fontsize=\footnotesize]{text}
+-----------------------------------------------------------------------------
+translating input C program to k2
+-----------------------------------------------------------------------------
+translation_time = 0.136
+-----------------------------------------------------------------------------
+running kratos with configuration: symexec
+-----------------------------------------------------------------------------
+parsing... done (0.014)
+flattening... done (0.004)
+building control-flow graph... done (0.002)
+performing symbolic execution...
+ done (3.838)
+
+Symbolic execution statistics:
+  ...
+
+Global statistics:
+  ...
+
+safe
+            \end{minted}
+    \end{block}
+\end{frame}

@@ -1,0 +1,102 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.15 Chrome/134.0.6998.205 Electron/35.2.1 Safari/537.36" version="26.2.15">
+  <diagram name="Pagina-1" id="MzvQco5-VoOy6QzOMNE0">
+    <mxGraphModel dx="728" dy="403" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-1" value="isEven(4)" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=DIN Alternate;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-2" value="isOdd(3)" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=DIN Alternate;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=DIN Alternate;fontSize=12;" edge="1" parent="1" source="58YDhLOCCDlx_yYsdjlk-1" target="58YDhLOCCDlx_yYsdjlk-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="300" as="sourcePoint" />
+            <mxPoint x="280" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-5" value="isEven(2)" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=DIN Alternate;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="180" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=DIN Alternate;fontSize=12;" edge="1" parent="1" source="58YDhLOCCDlx_yYsdjlk-2" target="58YDhLOCCDlx_yYsdjlk-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="330" as="sourcePoint" />
+            <mxPoint x="180" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-7" value="isOdd(1)" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=DIN Alternate;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=DIN Alternate;fontSize=12;" edge="1" parent="1" source="58YDhLOCCDlx_yYsdjlk-5" target="58YDhLOCCDlx_yYsdjlk-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="280" as="sourcePoint" />
+            <mxPoint x="360" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-9" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=DIN Alternate;fontSize=12;" edge="1" parent="1" source="58YDhLOCCDlx_yYsdjlk-7" target="58YDhLOCCDlx_yYsdjlk-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="300" as="sourcePoint" />
+            <mxPoint x="350" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="240" />
+              <mxPoint x="190" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-10" value="&lt;div&gt;base case:&lt;/div&gt;return 1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=DIN Alternate;fontSize=12;" vertex="1" connectable="0" parent="58YDhLOCCDlx_yYsdjlk-9">
+          <mxGeometry x="-0.2112" relative="1" as="geometry">
+            <mxPoint y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-11" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=DIN Alternate;fontSize=12;" edge="1" parent="1" target="58YDhLOCCDlx_yYsdjlk-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="200" as="sourcePoint" />
+            <mxPoint x="140" y="130" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="170" />
+              <mxPoint x="170" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-12" value="return 1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=DIN Alternate;fontSize=12;" vertex="1" connectable="0" parent="58YDhLOCCDlx_yYsdjlk-11">
+          <mxGeometry x="-0.2112" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-13" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=DIN Alternate;fontSize=12;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="130" as="sourcePoint" />
+            <mxPoint x="120" y="60" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="150" y="100" />
+              <mxPoint x="150" y="60" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-14" value="return 1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=DIN Alternate;fontSize=12;" vertex="1" connectable="0" parent="58YDhLOCCDlx_yYsdjlk-13">
+          <mxGeometry x="-0.2112" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontFamily=DIN Alternate;fontSize=12;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="10" as="sourcePoint" />
+            <mxPoint x="55" y="40.00000000000006" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=DIN Alternate;fontSize=12;" edge="1" parent="1" source="58YDhLOCCDlx_yYsdjlk-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="110" as="sourcePoint" />
+            <mxPoint x="70" y="10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58YDhLOCCDlx_yYsdjlk-17" value="return 1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=DIN Alternate;fontSize=12;" vertex="1" connectable="0" parent="58YDhLOCCDlx_yYsdjlk-16">
+          <mxGeometry x="-0.0639" relative="1" as="geometry">
+            <mxPoint x="22" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
